@@ -4,7 +4,7 @@
   "description": "Site moderne pour Delachaise Viat - Miroiterie et vitrerie",
   "scripts": {
     "dev": "echo 'No dev server needed'",
-    "build": "echo 'Build complete'",
+    "build": "mkdir -p dist && cp src/pages/index.html dist/index.html",
     "preview": "echo 'Preview not available'"
   },
   "dependencies": {},
