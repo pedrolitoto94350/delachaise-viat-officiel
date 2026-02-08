@@ -27,7 +27,7 @@
         .services { padding: 5rem 0; background: #f8fafc; }
         .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 1rem; color: #0369a1; }
         .section-subtitle { text-align: center; max-width: 700px; margin: 0 auto 4rem; color: #64748b; font-size: 1.1rem; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-top: 2rem; }
+        .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 2rem; }
         .service-card { background: white; padding: 2.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.3s; }
         .service-card:hover { transform: translateY(-10px); }
         .service-icon { font-size: 3rem; margin-bottom: 1.5rem; }
@@ -35,7 +35,7 @@
         
         /* Gallery */
         .gallery { padding: 5rem 0; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
         .gallery-item { position: relative; overflow: hidden; border-radius: 12px; height: 250px; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
         .gallery-item:hover img { transform: scale(1.05); }
@@ -57,13 +57,35 @@
         .footer-logo { font-size: 2rem; font-weight: bold; margin-bottom: 1.5rem; }
         
         /* Responsive */
-        @media (max-width: 768px) {
+        /* Desktop: 4 colonnes pour services, 3 colonnes pour galerie */
+        @media (min-width: 1200px) {
+            .services-grid { grid-template-columns: repeat(4, 1fr); }
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        
+        /* Tablet: 2 colonnes pour services et galerie */
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        /* Mobile: 1 colonne */
+        @media (max-width: 767px) {
             .hero h1 { font-size: 2.2rem; }
             .section-title { font-size: 2rem; }
             nav { flex-direction: column; gap: 1.5rem; }
             .nav-links a { margin: 0 0.5rem; }
-            .gallery-grid { grid-template-columns: 1fr; }
+            .services-grid, .gallery-grid { grid-template-columns: 1fr; }
             .contact-form { padding: 2rem; }
+            .gallery-item { height: 200px; }
+        }
+        
+        /* Petits écrans mobiles */
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.8rem; }
+            .section-title { font-size: 1.6rem; }
+            .service-card, .contact-form { padding: 1.5rem; }
+            .gallery-item { height: 180px; }
         }
     </style>
 </head>
@@ -130,7 +152,7 @@
                         <div class="gallery-caption">Crédence cuisine verre trempé</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w-600" alt="Garde-corps verre escalier">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600" alt="Garde-corps verre escalier">
                         <div class="gallery-caption">Garde-corps verre escalier design</div>
                     </div>
                     <div class="gallery-item">
